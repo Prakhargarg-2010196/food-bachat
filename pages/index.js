@@ -131,7 +131,7 @@ const SignupSeller = () => {
               mt="md"
               visible={visible}
               onVisibilityChange={toggle}
-              // {...form.getInputProps('confirmPassword')}
+              {...form.getInputProps('confirmPassword')}
             />
           </MantineProvider>
 
