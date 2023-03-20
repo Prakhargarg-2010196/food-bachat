@@ -60,8 +60,10 @@ const SignupSeller = () => {
               username:email,
               password: password,
             };
+            console.log(user);
             await authService.SignUp(user).then(
               () => {
+                
                 router.push('/loginSeller');
               },
               (error) => {
@@ -103,7 +105,7 @@ const SignupSeller = () => {
                 color='#a2d2ff'
               mt="md"
               onChange={(event) => setEmail(event.target.value)}
-              {...form.getInputProps('email')}
+              // {...form.getInputProps('email')}
               />
              
             {/*password */}
@@ -116,7 +118,7 @@ const SignupSeller = () => {
               withAsterisk
               visible={visible}
               onVisibilityChange={toggle}
-              {...form.getInputProps('password')}
+              // {...form.getInputProps('password')}
             />
             {/*confirm password */}
 
@@ -129,7 +131,7 @@ const SignupSeller = () => {
               mt="md"
               visible={visible}
               onVisibilityChange={toggle}
-              {...form.getInputProps('confirmPassword')}
+              // {...form.getInputProps('confirmPassword')}
             />
           </MantineProvider>
 

@@ -3,12 +3,12 @@ import axios from 'axios';
 class AuthService {
 
     SignUp(userCredentials) {
-        return axios.post((BaseUrl() + "api/auth/signup"), userCredentials)
+        return axios.post((BaseUrl()+"api/auth/signup"), userCredentials)
     }
 
     LogIn(userCredentials) {
         return axios
-            .post((BaseUrl() + "api/auth/signin"), userCredentials)
+            .post((BaseUrl()+"api/auth/signin"), userCredentials)
     }
 
  
@@ -27,5 +27,6 @@ class AuthService {
 
 }
 
+// eslint-disable-next-line import/no-anonymous-default-export
 export default new AuthService();
 
