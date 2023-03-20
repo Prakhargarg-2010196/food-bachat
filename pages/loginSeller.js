@@ -15,13 +15,10 @@ const LoginSeller = () => {
 
     const NavLinks = [
         {
-            linkUrl: '/signUpSeller',
+            linkUrl: '/',
             linkText: 'Become a seller',
         },
-        {
-            linkUrl: '/signUpDonor',
-            linkText: 'Become a Food Donor',
-        }
+        
     ]
     const form = useForm({
         initialValues: {
@@ -53,7 +50,7 @@ const LoginSeller = () => {
                             (response) => {
                               
                                 const { userId } = response.data;
-                                console.log(userId);
+                                // console.log(userId);
                                  if (response.data.token) {
                                     const { token } = response.data;
                                     localStorage.setItem("user", JSON.stringify(token));

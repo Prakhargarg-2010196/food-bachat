@@ -5,6 +5,7 @@ import Image from 'next/image';
 import Navbar from  '../components/Navbar'
 import authService from '../api/services/auth.service';
 import foodTimer from '../public/foodTimer.gif'
+import { redirect } from 'next/dist/server/api-utils';
 import { useDisclosure } from '@mantine/hooks';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
@@ -38,7 +39,7 @@ const SignupSeller = () => {
       email: isEmail('Invalid email'),
       email: isNotEmpty('Email cannot be Empty'),
       password: hasLength({ min: 9 }, 'Invalid Password, Password should be minimum of 9 characters'), 
-      confirmPassword: matchesField('password', 'Passwords are not the same'),
+      // confirmPassword: matchesField('password', 'Passwords are not the same'),
     },
   });
   return (
@@ -70,7 +71,9 @@ const SignupSeller = () => {
                
               }
             );
+          
           })}>
+            {/* {console.log(password)} */}
             <MantineProvider
               inherit
               theme={{
@@ -100,22 +103,20 @@ const SignupSeller = () => {
                 color='#a2d2ff'
               mt="md"
               onChange={(event) => setEmail(event.target.value)}
-              // {...form.getInputProps('email')}
+              {...form.getInputProps('email')}
               />
-              {console.log(email)
-              }
-              {console.log(password)}
+             
             {/*password */}
             <PasswordInput
               label="Enter your password"
               placeholder="Enter your password"
               value={password}
-              onChange={(event) => setPassword(event.currentTarget.value)}
+              onChange={(event) => setPassword(event.target.value)}
               mt="md"
               withAsterisk
               visible={visible}
               onVisibilityChange={toggle}
-              // {...form.getInputProps('password')}
+              {...form.getInputProps('password')}
             />
             {/*confirm password */}
 
@@ -124,7 +125,7 @@ const SignupSeller = () => {
               placeholder="Confirm your password"
               withAsterisk
               value={confirmPassword}
-              onChange={(event) => setConfirmPassword(event.currentTarget.value)}
+              onChange={(event) => setConfirmPassword(event.target.value)}
               mt="md"
               visible={visible}
               onVisibilityChange={toggle}
